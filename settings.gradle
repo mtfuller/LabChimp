@@ -1,0 +1,5 @@
+rootProject.name = 'LabChimp'
+include 'LabChimp-Editor'
+findProject(':LabChimp-Editor')?.name = 'LabChimp'
+rootProject.name = 'labchimp'
+
