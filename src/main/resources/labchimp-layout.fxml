@@ -34,20 +34,10 @@
     <left>
         <TreeView prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
     </left>
-    <center>
-        <ScrollPane prefViewportHeight="400.0" prefViewportWidth="400.0" BorderPane.alignment="CENTER">
-            <content>
-                <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" BorderPane.alignment="CENTER">
-                    <children>
-                        <ListView fx:id="lineNums" editable="true" maxWidth="-Infinity" prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS" />
-                        <TextArea maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="200.0">
-                            <font>
-                                <Font name="Consolas" size="12.0" />
-                            </font>
-                        </TextArea>
-                    </children>
-                </HBox>
-            </content>
-        </ScrollPane>
-    </center>
+   <center>
+      <VBox fx:id="codeEditor" prefHeight="200.0" BorderPane.alignment="CENTER" />
+   </center>
+   <bottom>
+      <Pane maxHeight="50.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: grey;" BorderPane.alignment="CENTER" />
+   </bottom>
 </BorderPane>

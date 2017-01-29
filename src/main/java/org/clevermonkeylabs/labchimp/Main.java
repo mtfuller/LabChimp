@@ -1,28 +1,39 @@
 package org.clevermonkeylabs.labchimp;
 
 import javafx.application.Application;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.ListView;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Priority;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import org.fxmisc.flowless.VirtualizedScrollPane;
+import org.fxmisc.richtext.CodeArea;
+import org.fxmisc.richtext.LineNumberFactory;
 
 public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("/hello/sample.fxml"));
-        primaryStage.setTitle("LabChimp");
-        primaryStage.setScene(new Scene(root, 800, 600));
-        primaryStage.show();
-        ObservableList<Integer> names = FXCollections.observableArrayList(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,22,23,24,25,26,27,28,29,30);
 
-        ListView<Integer> list = (ListView<Integer>) primaryStage.getScene().lookup("#lineNums");
-        System.out.println(list);
-        System.out.println(names);
-        list.setItems(names);
+        // Setup GUI layout from fxml file
+        Parent root = FXMLLoader.load(getClass().getResource("/labchimp-layout.fxml"));
+        primaryStage.setScene(new Scene(root, 800, 600));
+
+        // Load in RichTextFx editor
+        CodeArea codeArea = new CodeArea();
+        codeArea.setStyle("-fx-font-size: 22");
+        codeArea.setParagraphGraphicFactory(LineNumberFactory.get(codeArea));
+
+        VBox codeEditor = (VBox) primaryStage.getScene().lookup("#codeEditor");
+        VirtualizedScrollPane codeEditorPane = new VirtualizedScrollPane<>(codeArea);
+        VBox.setVgrow(codeEditorPane, Priority.ALWAYS);
+        codeEditor.getChildren().add(codeEditorPane);
+
+        // Display GUI Editor
+        primaryStage.setTitle("LabChimp");
+        primaryStage.show();
     }
 
 
