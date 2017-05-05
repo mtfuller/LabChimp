@@ -1,10 +1,12 @@
 package org.clevermonkeylabs.framework.view;
 
 import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.layout.BorderPane;
 import org.clevermonkeylabs.framework.controller.Controller;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  * Created by Thomas on 5/5/2017.

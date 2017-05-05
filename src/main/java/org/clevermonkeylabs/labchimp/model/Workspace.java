@@ -7,7 +7,7 @@ import java.util.ArrayList;
  */
 public class Workspace {
     private ArrayList<OpenedFile> openedFiles = new ArrayList<>();
-    private OpenedFile currentFile;
+    private OpenedFile currentFile = null;
 
     public OpenedFile getCurrentFile() {
         return currentFile;

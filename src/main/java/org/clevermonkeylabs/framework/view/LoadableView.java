@@ -20,7 +20,10 @@ public class LoadableView extends View {
     @Override
     public Node buildView() {
         try {
-            return FXMLLoader.load(getClass().getClassLoader().getResource(fxmlPath));
+            FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource(fxmlPath));
+            Node n = loader.load();
+            setController(loader.getController());
+            return n;
         } catch (IOException e) {
             e.printStackTrace();
         }

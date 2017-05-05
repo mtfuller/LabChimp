@@ -5,6 +5,7 @@ import javafx.scene.layout.StackPane;
 import org.clevermonkeylabs.framework.controller.Controller;
 import org.clevermonkeylabs.framework.view.ControllableView;
 import org.clevermonkeylabs.framework.view.Position;
+import org.clevermonkeylabs.framework.view.View;
 import org.fxmisc.flowless.VirtualizedScrollPane;
 import org.fxmisc.richtext.CodeArea;
 import org.fxmisc.richtext.LineNumberFactory;
@@ -15,8 +16,8 @@ import org.fxmisc.richtext.LineNumberFactory;
 public class CodeEditorView extends ControllableView {
     private CodeArea codeEditor;
 
-    public CodeEditorView(Position position, Controller<?, ?> controller) {
-        super(position, controller);
+    public CodeEditorView(Position position, Controller<CodeEditorView, ?> controller) {
+        super(position,controller);
     }
 
     @Override

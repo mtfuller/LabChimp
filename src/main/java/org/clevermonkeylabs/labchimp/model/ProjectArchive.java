@@ -6,11 +6,11 @@ import java.util.ArrayList;
  * Created by Thomas on 5/5/2017.
  */
 public class ProjectArchive {
-    private LabChimpApplicationModel applicationModel;
-    private ArrayList<Project> projects;
-    private Project currentProject;
+    private LabChimpApplicationModel applicationModel = null;
+    private ArrayList<Project> projects = new ArrayList<>();
+    private Project currentProject = null;
 
-    public ProjectArchive(LabChimpApplicationModel applicationModel) {
+    public void setApplicationModel(LabChimpApplicationModel applicationModel) {
         this.applicationModel = applicationModel;
     }
 

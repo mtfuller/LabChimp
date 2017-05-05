@@ -1,5 +1,6 @@
 package org.clevermonkeylabs.labchimp.model;
 
+import javafx.beans.property.SimpleStringProperty;
 import org.fxmisc.undo.UndoManager;
 
 import java.io.File;
@@ -9,19 +10,19 @@ import java.io.File;
  */
 public class OpenedFile {
     private File file;
-    private String fileContent;
+    private SimpleStringProperty fileContent;
     private UndoManager undoManager;
 
     public OpenedFile(File file) {
         this.file = file;
     }
 
-    public String getFileContent() {
+    public SimpleStringProperty getFileContent() {
         return fileContent;
     }
 
     public void setFileContent(String fileContent) {
-        this.fileContent = fileContent;
+        this.fileContent.setValue(fileContent);
     }
 
     public void rename() {
