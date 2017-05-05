@@ -15,6 +15,7 @@ repositories {
 dependencies {
     compile group: 'org.fxmisc.richtext', name: 'richtextfx', version: '0.7-M3'
     compile group: 'org.fxmisc.undo', name: 'undofx', version: '1.3.1'
+    compile group: 'net.contentobjects.jnotify', name: 'jnotify', version: '0.94'
     testCompile "junit:junit:4.10"
     testCompile "org.testfx:testfx-core:4.0.+"
     testCompile "org.testfx:testfx-legacy:4.0.+", {
