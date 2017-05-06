@@ -1,5 +1,8 @@
 package org.clevermonkeylabs.labchimp.model;
 
+import java.io.File;
+import java.io.IOException;
+
 /**
  * Created by Thomas on 5/5/2017.
  */
@@ -23,5 +26,11 @@ public class LabChimpApplicationModel {
 
     public void foo() {
         System.out.println("WOWZA!!!");
+    }
+
+    public void openFile(File file) throws IOException {
+        System.out.println(file.getName() + ": " + file.getPath());
+        OpenedFile newFile = new OpenedFile(file);
+        workspace.addFile(newFile);
     }
 }

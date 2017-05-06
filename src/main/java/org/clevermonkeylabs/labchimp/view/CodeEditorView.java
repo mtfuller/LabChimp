@@ -41,4 +41,8 @@ public class CodeEditorView extends ControllableView {
         StackPane stackPane = new StackPane(new VirtualizedScrollPane<>(codeEditor));
         return stackPane;
     }
+
+    public CodeArea getCodeEditor() {
+        return codeEditor;
+    }
 }

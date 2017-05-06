@@ -1,11 +1,12 @@
 package org.clevermonkeylabs.labchimp.model;
 
 import java.util.ArrayList;
+import java.util.Observable;
 
 /**
  * Created by Thomas on 5/5/2017.
  */
-public class Workspace {
+public class Workspace extends Observable{
     private ArrayList<OpenedFile> openedFiles = new ArrayList<>();
     private OpenedFile currentFile = null;
 
@@ -13,7 +14,7 @@ public class Workspace {
         return currentFile;
     }
 
-    public void setCurrentFile(OpenedFile currentFile) {
+    private void setCurrentFile(OpenedFile currentFile) {
         this.currentFile = currentFile;
     }
 
@@ -30,7 +31,11 @@ public class Workspace {
     }
 
     public boolean addFile(OpenedFile openedFile) {
-        return openedFiles.add(openedFile);
+        setCurrentFile(openedFile);
+        boolean bool = openedFiles.add(openedFile);
+        setChanged();
+        notifyObservers();
+        return bool;
     }
 
     public boolean removeFile(OpenedFile o) {

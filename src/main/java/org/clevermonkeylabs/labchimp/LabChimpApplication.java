@@ -46,6 +46,10 @@ public class LabChimpApplication extends Application {
 
         // Setup Controllers for Views
         menubar.getController().setModel(applicationModel);
+        menubar.getController().setStage(primaryStage);
+
+        codeEditor.getController().setModel(workspace);
+        workspace.addObserver((CodeEditorController) codeEditor.getController());
 
         // Display
         primaryStage.setScene(new Scene(root, APP_WINDOW_WIDTH, APP_WINDOW_HEIGHT));

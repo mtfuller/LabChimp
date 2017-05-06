@@ -37,6 +37,7 @@ public class ViewBuilder {
                 case BOTTOM:
                     borderPane.setBottom(n);
             }
+            v.getController().setView(v);
         }
         return borderPane;
     }
