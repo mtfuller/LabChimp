@@ -1,11 +1,12 @@
 package org.clevermonkeylabs.framework.controller;
 
 import javafx.stage.Stage;
+import org.clevermonkeylabs.framework.view.View;
 
 /**
  * Created by Thomas on 5/5/2017.
  */
-public class Controller<V, M> {
+public class Controller<V extends View, M extends Object> {
     protected V view;
     protected M model;
     protected Stage stage;
@@ -14,11 +15,9 @@ public class Controller<V, M> {
         this.stage = stage;
     }
 
-    public <P> void setView(P view) {
-        this.view = (V) view;
-    }
+    public void setView(V view) {this.view = view;}
 
-    public <P> void setModel(P model) {
-        this.model = (M) model;
+    public void setModel(M model) {
+        this.model = model;
     }
 }

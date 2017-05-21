@@ -8,7 +8,7 @@ import org.clevermonkeylabs.framework.controller.Controller;
  */
 public abstract class View {
     private Position position;
-    private Controller<? extends View,?> controller;
+    private Controller controller;
 
     public View(Position position) {
         this.position = position;
@@ -18,11 +18,11 @@ public abstract class View {
         return position;
     }
 
-    public Controller<? extends View, ?> getController() {
+    public Controller getController() {
         return controller;
     }
 
-    public void setController(Controller<? extends View, ?> controller) {
+    public void setController(Controller controller) {
         this.controller = controller;
     }
 

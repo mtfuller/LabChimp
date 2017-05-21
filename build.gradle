@@ -4,7 +4,7 @@ version '1.0'
 apply plugin: 'idea'
 apply plugin: 'application'
 
-mainClassName = "org.clevermonkeylabs.labchimp.Main"
+mainClassName = "org.clevermonkeylabs.labchimp.LabChimpApplication"
 
 sourceCompatibility = 1.8
 

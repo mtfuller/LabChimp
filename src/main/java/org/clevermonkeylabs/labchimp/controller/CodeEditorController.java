@@ -13,14 +13,20 @@ import java.util.Observer;
  */
 public class CodeEditorController extends Controller<CodeEditorView, Workspace> implements Observer{
 
-
+    public void setup() {
+        view.getCodeEditor().richChanges()
+                .filter(ch -> !ch.getInserted().equals(ch.getRemoved()))
+                .subscribe(change -> {
+                    System.out.println(change.toString());
+                    model.getCurrentFile().changeFileContent(change.getInserted().getText(),
+                            change.getRemoved().getText(), change.getPosition());
+                    }
+                );
+    }
 
     @Override
     public void update(Observable o, Object arg) {
-        System.out.println(model.getCurrentFile());
         String content = model.getCurrentFile().getFileContent();
-        System.out.println(content);
-        System.out.println(view);
         view.getCodeEditor().replaceText(0,0,content);
     }
 }

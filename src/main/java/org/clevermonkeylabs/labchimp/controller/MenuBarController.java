@@ -27,7 +27,12 @@ public class MenuBarController extends Controller<LoadableView, LabChimpApplicat
     }
 
     public void save() {
-
+        System.out.println(model.getWorkspace().getCurrentFile().getFileContent());
+        try {
+            model.getWorkspace().getCurrentFile().save();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public void saveAs() {
